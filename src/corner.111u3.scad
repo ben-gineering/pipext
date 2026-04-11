@@ -3,7 +3,7 @@ include <BOSL2/screws.scad>
 include <pipext.config.scad>
 
 $fn = 50;
-pipedia = 10;
+clamp_clearence = 1;
 
 // Function to create the model
 module corner111u3(u) {
@@ -15,13 +15,14 @@ module corner111u3(u) {
 //    rot([0,-45,-45]) cuboid([8,2*u,2*u]){};
 //    }
   difference() {
-    zmove(5) zcyl(h=10, d=25, $fn=100, chamfer=1);
-    zrot(0) xrot(45) xmove(pipedia) ycyl(h=2*u, d=pipedia);
-    zrot(120) xrot(45) xmove(pipedia) ycyl(h=2*u, d=pipedia);
-    zrot(240) xrot(45) xmove(pipedia) ycyl(h=2*u, d=pipedia);
-    down(u-5) screw_hole(screw_type(u), head="socket", counterbore=bore_clearance(u), $fn=32, anchor=BOT);
+    zmove(u/2 + clamp_clearence/2) zcyl(h=10 - clamp_clearence, d=25, $fn=100, chamfer=1);
+    zrot(0) xrot(54.74) xmove(u) ycyl(h=5*u, d=u);
+    zrot(120) xrot(54.74) xmove(u) ycyl(h=5*u, d=u);
+    zrot(240) xrot(54.74) xmove(u) ycyl(h=5*u, d=u);
+    down(u+5) screw_hole(screw_type(20), head="socket", counterbore=bore_clearance(20), $fn=32, anchor=BOT);
+    up(u-5) nut_trap_inline(10, "M4", $slop=.1);
   }
 }
 
 // Create the model
-corner111u3(20);
+corner111u3(10);
