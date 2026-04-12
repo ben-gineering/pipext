@@ -25,8 +25,8 @@ include <BOSL2/screws.scad>
 include <pipext.config.scad>
 $fn = 50;
 tooth_count = 3;
-tooth_height = 2;
-clamp_clearence = 1.5;
+tooth_height = 4;
+clamp_clearence = 2;
 
 module corner111u3(u) {
   pitch = 360/3;
@@ -35,8 +35,9 @@ module corner111u3(u) {
     union(){
       zmove(u/2 + clamp_clearence/2) zcyl(h=10 - clamp_clearence, d=25, $fn=100, chamfer=0) {
         attach(BOT) for (i = [0:3-1])
-          zrot(i*pitch-3) xmove(8)
-            ymove(-2.5) cuboid([8, 5,tooth_height],anchor=BOT);
+          zrot(i*pitch-45) xmove(0)
+            //ymove(-2.5) cuboid([8, 5,tooth_height],anchor=BOT);
+            pie_slice(ang=60, l=tooth_height, r=12.5);
       }
     }
   zrot(0) xrot(90-54.74) xmove(u) ycyl(h=5*u, d=u);
