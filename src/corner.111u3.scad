@@ -36,8 +36,7 @@ module corner111u3(u) {
     union(){
       zmove(u/2 + clamp_clearence/2) zcyl(h=10 - clamp_clearence, d=base_dia, $fn=100, chamfer=0) {
         attach(BOT) for (i = [0:3-1])
-          zrot(i*pitch-45) xmove(0)
-            //ymove(-2.5) cuboid([8, 5,tooth_height],anchor=BOT);
+          zrot(i*pitch+60)
             pie_slice(ang=60, l=tooth_height, r=base_dia/2);
       }
     }
@@ -48,4 +47,6 @@ module corner111u3(u) {
   up(u-4) nut_trap_inline(10, "M4", $slop=.1);
   }
 }
+
 corner111u3(10);
+yrot(180) zrot(-60) corner111u3(10);
