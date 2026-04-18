@@ -34,10 +34,10 @@ module corner111u3(u) {
   
   difference(){
     union(){
-      zmove(u/2 + clamp_clearence/2) zcyl(h=10 - clamp_clearence, d=base_dia, $fn=100, chamfer=0) {
+      zmove(6 + clamp_clearence/2) zcyl(h=12 - clamp_clearence, d=base_dia, $fn=100, chamfer=0) {
         attach(BOT) for (i = [0:3-1])
-          zrot(i*pitch+60)
-            pie_slice(ang=60, l=tooth_height, r=base_dia/2);
+          zrot(i*pitch+60+1)
+            pie_slice(ang=60-1, l=tooth_height, r=base_dia/2);
       }
     }
   zrot(0) xrot(90-54.74) xmove(u) ycyl(h=5*u, d=u);
@@ -49,4 +49,4 @@ module corner111u3(u) {
 }
 
 corner111u3(10);
-yrot(180) zrot(-60) corner111u3(10);
+//yrot(180) zrot(-60) corner111u3(10);
