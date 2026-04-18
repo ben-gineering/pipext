@@ -43,8 +43,8 @@ module corner111u3(u) {
   zrot(0) xrot(90-54.74) xmove(u) ycyl(h=5*u, d=u);
   zrot(120) xrot(90-54.74) xmove(u) ycyl(h=5*u, d=u);
   zrot(240) xrot(90-54.74) xmove(u) ycyl(h=5*u, d=u);
-  down(u+4) screw_hole(screw_type(u), head="socket", counterbore=bore_clearance(u), $fn=32, anchor=BOT);
-  up(u-4) nut_trap_inline(10, "M4", $slop=.1);
+  down(8+4) screw_hole(screw_type(u), head="socket", counterbore=bore_clearance(u), $fn=32, anchor=BOT);
+  up(12-4) nut_trap_inline(10, "M4", $slop=.1);
   }
 }
 
