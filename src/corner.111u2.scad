@@ -3,12 +3,13 @@ include <BOSL2/screws.scad>
 include <pipext.config.scad>
 $fn = 50;
 base_dia = 28;
+base_height = 12;
 clamp_clearence = 0.5;
 
 module corner111u2(u) {
   
   difference(){
-  zmove(6 + clamp_clearence/2) zcyl(h=12 - clamp_clearence, d=base_dia, $fn=100, chamfer=0);
+  zmove(base_height/2 + clamp_clearence/2) zcyl(h=base_height - clamp_clearence, d=base_dia, $fn=100, chamfer=0);
   xmove(u) zmove(u/2) union(){
     ycyl(h=5*u, d=u);
     move([u/4,0,-u/4]) cuboid([u/2,5*u,u/2]);

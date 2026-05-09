@@ -49,4 +49,4 @@ module corner111u3(u) {
 }
 
 corner111u3(10);
-//yrot(180) zrot(-60) corner111u3(10);
+yrot(180) zrot(-60) corner111u3(10);
