@@ -12,7 +12,7 @@ pitch = 360/3;
   
   difference(){
     union(){
-      zmove(base_height/2 + clamp_clearence/2) zcyl(h=base_height - clamp_clearence, d=base_dia, $fn=100, rounding2=9.5) {
+      zmove(base_height/2 + clamp_clearence/2) zcyl(h=base_height - clamp_clearence, d=base_dia, $fn=100, rounding2=u) {
         attach(BOT) for (i = [0:3-1])
           zrot(i*pitch+60+1)
             pie_slice(ang=60-1, l=tooth_height, r=base_dia/2);
@@ -23,11 +23,14 @@ pitch = 360/3;
   zrot(240) xrot(90-54.74) xmove(u) ycyl(h=5*u, d=u);
   down(8+4) screw_hole(screw_type(u), head="socket", counterbore=bore_clearance(u), $fn=32, anchor=BOT);
   up(12-4) nut_trap_inline(2*u, "M4", $slop=.1);
+  for (i = [0:3-1])
+    zrot(i*pitch+60)
+      move([15,-10,2.99]) prismoid(size1=[21.3,20], size2=[10,10], h=10, shift=[5,-5]);
   }
 }
 
-//corner111u3(10);
-yrot(180) zrot(-60) corner111u3(10);
+//corner111u3(17.2);
+yrot(180) zrot(-60) corner111u3(17.2);
 
 //front_half() xmove(100) corner111u3(20);
 //front_half() xmove(100) yrot(180) zrot(-60) corner111u3(20);
