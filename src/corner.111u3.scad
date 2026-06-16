@@ -22,7 +22,7 @@ pitch = 360/3;
   zrot(120) xrot(90-54.74) xmove(u) ycyl(h=5*u, d=u);
   zrot(240) xrot(90-54.74) xmove(u) ycyl(h=5*u, d=u);
   down(8+4) screw_hole(screw_type(u), head="socket", counterbore=bore_clearance(u), $fn=32, anchor=BOT);
-  up(12-4) nut_trap_inline(2*u, "M4", $slop=.1);
+  up(12-4) nut_trap_inline(2*u, "M4", $slop=.15);
   for (i = [0:3-1])
     zrot(i*pitch+60)
       move([15,-5,2.99]) prismoid(size1=[21.3,10], size2=[10,5], h=5, shift=[5,-2.5]);
