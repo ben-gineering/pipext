@@ -4,7 +4,7 @@ include <pipext.config.scad>
 $fn = 50;
 
 module corner111u3(u) {
-base_dia = 2.5 * u;
+base_dia = 2.7 * u;
 base_height = 1.25 * u;
 tooth_height = 5;
 clamp_clearence = 3;
@@ -14,8 +14,8 @@ pitch = 360/3;
     union(){
       zmove(base_height/2 + clamp_clearence/2) zcyl(h=base_height - clamp_clearence, d=base_dia, $fn=100, rounding2=u) {
         attach(BOT) for (i = [0:3-1])
-          zrot(i*pitch+60+1)
-            pie_slice(ang=60-1, l=tooth_height, r=base_dia/2);
+          zrot(i*pitch+60+3)
+            pie_slice(ang=60-3, l=tooth_height, r=base_dia/2);
       }
     }
   zrot(0) xrot(90-54.74) xmove(u) ycyl(h=5*u, d=u);
@@ -25,7 +25,7 @@ pitch = 360/3;
   up(12-4) nut_trap_inline(2*u, "M4", $slop=.1);
   for (i = [0:3-1])
     zrot(i*pitch+60)
-      move([15,-10,2.99]) prismoid(size1=[21.3,20], size2=[10,10], h=10, shift=[5,-5]);
+      move([15,-5,2.99]) prismoid(size1=[21.3,10], size2=[10,5], h=5, shift=[5,-2.5]);
   }
 }
 
