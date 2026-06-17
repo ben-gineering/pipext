@@ -20,7 +20,7 @@ clamp_clearence = 0.5;
 }
 
 corner111u2(17.2);
-yrot(180) zrot(90) corner111u2(17.2);
+//yrot(180) zrot(90) corner111u2(17.2);
 
 //xmove(100) front_half() corner111u2(20);
 //xmove(100) front_half() yrot(180) zrot(90) corner111u2(20);
